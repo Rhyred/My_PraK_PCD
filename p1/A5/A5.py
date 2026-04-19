@@ -25,8 +25,8 @@ class ShowImage(QMainWindow):
         self.actionLoad_Image.triggered.connect(self.loadClicked)
         self.actionGrayScale.triggered.connect(self.grayClicked)
         
-        # Kabel Brightness sudah DIBUANG. 
-        # Cukup koneksikan menu Simple Contrast saja
+        # Nyalakan dua-duanya di A5
+        self.actionBrightness.triggered.connect(self.brightness)
         self.actionSimple_Contrast.triggered.connect(self.contrast)
 
     def loadClicked(self):
@@ -66,45 +66,63 @@ class ShowImage(QMainWindow):
             self.hasilLabel.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
             self.hasilLabel.setScaledContents(True)
 
+    # ========================================================
+    # KUMPULAN FUNGSI OPERASI TITIK (A3 - A5 KUMULATIF)
+    # ========================================================
+
     def grayClicked(self):
         if self.image is not None:
-            H, W = self.image.shape[:2]
+            # Satpam Pengecekan Warna
+            if len(self.image.shape) == 3:
+                img = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY) 
+            else:
+                img = self.image.copy()
+                
+            H, W = img.shape[:2]
             gray = np.zeros((H, W), np.uint8)
             for i in range(H):
                 for j in range(W):
-                    gray[i, j] = np.clip(0.299 * self.image[i, j, 2] + 
-                                         0.587 * self.image[i, j, 1] + 
-                                         0.114 * self.image[i, j, 0], 0, 255)
+                    gray[i, j] = img[i, j]
             self.image = gray
             self.displayImage(2)
 
-    # --- PRAKTEK A5: SIMPLE CONTRAST ---
-    def contrast(self):
+    def brightness(self):
         if self.image is not None:
-            # Konversi citra RGB ke grayscale sesuai instruksi
-            img = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY) 
+            # Satpam Pengecekan Warna
+            if len(self.image.shape) == 3:
+                img = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY) 
+            else:
+                img = self.image.copy()
             
-            # Tentukan konstanta nilai kontras
-            contrast_val = 1.6 
+            brightness_val = 50
             h, w = img.shape[:2]
-            
-            # Looping untuk masing-masing array piksel
             for i in range(h):
                 for j in range(w):
-                    # Ambil nilai piksel (dijadikan int agar aman saat dikali)
                     a = int(img[i, j]) 
+                    b = a + brightness_val 
+                    if b > 255: b = 255
+                    elif b < 0: b = 0
+                    img[i, j] = b
                     
-                    # Rumus Kontras: f(x,y)' = f(x,y) * c
-                    # Menggunakan math.ceil untuk membulatkan ke atas
+            self.image = img
+            self.displayImage(2)
+
+    def contrast(self):
+        if self.image is not None:
+            # Satpam Pengecekan Warna
+            if len(self.image.shape) == 3:
+                img = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY) 
+            else:
+                img = self.image.copy()
+            
+            contrast_val = 1.6 
+            h, w = img.shape[:2]
+            for i in range(h):
+                for j in range(w):
+                    a = int(img[i, j]) 
                     b = math.ceil(a * contrast_val) 
-                    
-                    # Terapkan proses clipping
-                    if b > 255: 
-                        b = 255
-                    elif b < 0: 
-                        b = 0
-                        
-                    # Kembalikan nilai piksel yang baru
+                    if b > 255: b = 255
+                    elif b < 0: b = 0
                     img[i, j] = b 
                     
             self.image = img

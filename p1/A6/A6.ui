@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindowFile</class>
- <widget class="QMainWindow" name="MainWindowFile">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1110</width>
-    <height>895</height>
+    <width>1111</width>
+    <height>1021</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="loadButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>570</y>
-      <width>131</width>
-      <height>51</height>
+      <x>240</x>
+      <y>480</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Load</string>
+     <string>Load Image</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="imgLabel">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>10</y>
-      <width>431</width>
-      <height>531</height>
+      <x>60</x>
+      <y>50</y>
+      <width>450</width>
+      <height>420</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -43,13 +43,13 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="hasilLabel">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>10</y>
-      <width>431</width>
-      <height>531</height>
+      <x>610</x>
+      <y>50</y>
+      <width>450</width>
+      <height>420</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -59,33 +59,17 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="prosesCitra">
+   <widget class="QPushButton" name="saveButton">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>570</y>
-      <width>131</width>
-      <height>51</height>
+      <x>800</x>
+      <y>480</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Proses Citra</string>
-    </property>
-   </widget>
-   <widget class="QSlider" name="sliderBrightness">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>590</y>
-      <width>51</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="maximum">
-     <number>100</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+     <string>Save Image</string>
     </property>
    </widget>
   </widget>
@@ -94,50 +78,48 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1110</width>
-     <height>26</height>
+     <width>1111</width>
+     <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="actionFile">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="separator"/>
-    <addaction name="actionOpen"/>
-    <addaction name="actionSave"/>
+    <addaction name="actionLoad_Image"/>
+    <addaction name="actionSave_Image"/>
    </widget>
    <widget class="QMenu" name="menuOperasi_Titik">
     <property name="title">
-     <string>Opearasi Titik</string>
+     <string>Operasi Titik</string>
     </property>
-    <addaction name="actionGrayscale"/>
-    <addaction name="actionOperasi_Kecerahan"/>
+    <addaction name="actionGrayScale"/>
+    <addaction name="actionBrightness"/>
     <addaction name="actionSimple_Contrast"/>
     <addaction name="actionContrast_Stretching"/>
-    <addaction name="actionNegative"/>
    </widget>
-   <addaction name="actionFile"/>
+   <addaction name="menuFile"/>
    <addaction name="menuOperasi_Titik"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionOpen">
+  <action name="actionGrayScale">
    <property name="text">
-    <string>Open</string>
+    <string>GrayScale</string>
    </property>
   </action>
-  <action name="actionGrayscale">
+  <action name="actionLoad_Image">
    <property name="text">
-    <string>Grayscale</string>
+    <string>Load Image</string>
    </property>
   </action>
-  <action name="actionSave">
+  <action name="actionSave_Image">
    <property name="text">
-    <string>Save</string>
+    <string>Save Image</string>
    </property>
   </action>
-  <action name="actionOperasi_Kecerahan">
+  <action name="actionBrightness">
    <property name="text">
-    <string>Operasi Kecerahan</string>
+    <string>Brightness</string>
    </property>
   </action>
   <action name="actionSimple_Contrast">
@@ -147,12 +129,7 @@
   </action>
   <action name="actionContrast_Stretching">
    <property name="text">
-    <string>Contrast Streching</string>
-   </property>
-  </action>
-  <action name="actionNegative">
-   <property name="text">
-    <string>Negative</string>
+    <string>Contrast Stretching</string>
    </property>
   </action>
  </widget>

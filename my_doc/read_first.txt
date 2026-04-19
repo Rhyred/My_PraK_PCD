@@ -2,3 +2,6 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 "set powershell terminal"
 Get-ExecutionPolicy -List
 "Cek"
+
+git config --global user.name "Rhyred"
+git config --global user.email "robigold9@gmail.com"

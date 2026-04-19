@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'f:\PCD\Prak_Pcd\p1\A5\A5.ui'
+# Form implementation generated from reading ui file 'f:\PCD\Prak_Pcd\p1\A6\A6.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -55,11 +55,14 @@ class Ui_MainWindow(object):
         self.actionBrightness.setObjectName("actionBrightness")
         self.actionSimple_Contrast = QtWidgets.QAction(MainWindow)
         self.actionSimple_Contrast.setObjectName("actionSimple_Contrast")
+        self.actionContrast_Stretching = QtWidgets.QAction(MainWindow)
+        self.actionContrast_Stretching.setObjectName("actionContrast_Stretching")
         self.menuFile.addAction(self.actionLoad_Image)
         self.menuFile.addAction(self.actionSave_Image)
         self.menuOperasi_Titik.addAction(self.actionGrayScale)
         self.menuOperasi_Titik.addAction(self.actionBrightness)
         self.menuOperasi_Titik.addAction(self.actionSimple_Contrast)
+        self.menuOperasi_Titik.addAction(self.actionContrast_Stretching)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuOperasi_Titik.menuAction())
 
@@ -78,3 +81,4 @@ class Ui_MainWindow(object):
         self.actionSave_Image.setText(_translate("MainWindow", "Save Image"))
         self.actionBrightness.setText(_translate("MainWindow", "Brightness"))
         self.actionSimple_Contrast.setText(_translate("MainWindow", "Simple Contrast"))
+        self.actionContrast_Stretching.setText(_translate("MainWindow", "Contrast Stretching"))

@@ -1,0 +1,94 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'A5.ui'
+##
+## Created by: Qt User Interface Compiler version 6.10.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QMainWindow,
+    QMenu, QMenuBar, QPushButton, QSizePolicy,
+    QStatusBar, QWidget)
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(1017, 1021)
+        self.actionGrayScale = QAction(MainWindow)
+        self.actionGrayScale.setObjectName(u"actionGrayScale")
+        self.actionLoad_Image = QAction(MainWindow)
+        self.actionLoad_Image.setObjectName(u"actionLoad_Image")
+        self.actionSave_Image = QAction(MainWindow)
+        self.actionSave_Image.setObjectName(u"actionSave_Image")
+        self.actionBrightness = QAction(MainWindow)
+        self.actionBrightness.setObjectName(u"actionBrightness")
+        self.actionSimple_Contrast = QAction(MainWindow)
+        self.actionSimple_Contrast.setObjectName(u"actionSimple_Contrast")
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.loadButton = QPushButton(self.centralwidget)
+        self.loadButton.setObjectName(u"loadButton")
+        self.loadButton.setGeometry(QRect(170, 480, 75, 23))
+        self.imgLabel = QLabel(self.centralwidget)
+        self.imgLabel.setObjectName(u"imgLabel")
+        self.imgLabel.setGeometry(QRect(10, 50, 450, 420))
+        self.imgLabel.setFrameShape(QFrame.Box)
+        self.hasilLabel = QLabel(self.centralwidget)
+        self.hasilLabel.setObjectName(u"hasilLabel")
+        self.hasilLabel.setGeometry(QRect(510, 50, 450, 420))
+        self.hasilLabel.setFrameShape(QFrame.Box)
+        self.saveButton = QPushButton(self.centralwidget)
+        self.saveButton.setObjectName(u"saveButton")
+        self.saveButton.setGeometry(QRect(700, 480, 75, 23))
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QMenuBar(MainWindow)
+        self.menubar.setObjectName(u"menubar")
+        self.menubar.setGeometry(QRect(0, 0, 1017, 21))
+        self.menuFile = QMenu(self.menubar)
+        self.menuFile.setObjectName(u"menuFile")
+        self.menuOperasi_Titik = QMenu(self.menubar)
+        self.menuOperasi_Titik.setObjectName(u"menuOperasi_Titik")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QStatusBar(MainWindow)
+        self.statusbar.setObjectName(u"statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuOperasi_Titik.menuAction())
+        self.menuFile.addAction(self.actionLoad_Image)
+        self.menuFile.addAction(self.actionSave_Image)
+        self.menuOperasi_Titik.addAction(self.actionGrayScale)
+        self.menuOperasi_Titik.addAction(self.actionBrightness)
+        self.menuOperasi_Titik.addAction(self.actionSimple_Contrast)
+
+        self.retranslateUi(MainWindow)
+
+        QMetaObject.connectSlotsByName(MainWindow)
+    # setupUi
+
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.actionGrayScale.setText(QCoreApplication.translate("MainWindow", u"GrayScale", None))
+        self.actionLoad_Image.setText(QCoreApplication.translate("MainWindow", u"Load Image", None))
+        self.actionSave_Image.setText(QCoreApplication.translate("MainWindow", u"Save Image", None))
+        self.actionBrightness.setText(QCoreApplication.translate("MainWindow", u"Brightness", None))
+        self.actionSimple_Contrast.setText(QCoreApplication.translate("MainWindow", u"Simple Contrast", None))
+        self.loadButton.setText(QCoreApplication.translate("MainWindow", u"Load Image", None))
+        self.imgLabel.setText("")
+        self.hasilLabel.setText("")
+        self.saveButton.setText(QCoreApplication.translate("MainWindow", u"Save Image", None))
+        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
+        self.menuOperasi_Titik.setTitle(QCoreApplication.translate("MainWindow", u"Operasi Titik", None))
+    # retranslateUi
+

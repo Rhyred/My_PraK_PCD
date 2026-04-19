@@ -1,0 +1,4 @@
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+"set powershell terminal"
+Get-ExecutionPolicy -List
+"Cek"

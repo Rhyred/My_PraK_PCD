@@ -3,7 +3,7 @@
 > Kumpulan praktikum mata kuliah **Pengolahan Citra Digital** (IFB-208) Semester 4.
 > Dibangun menggunakan Python, OpenCV, dan PyQt5 — dari loading gambar sederhana sampai GUI interaktif buat ngatur brightness & contrast!
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square&logo=python)
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green?style=flat-square&logo=opencv)
 ![PyQt5](https://img.shields.io/badge/PyQt5-GUI-orange?style=flat-square&logo=qt)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat-square)
@@ -154,7 +154,6 @@ python a4_brightness.py
 
 ---
 
-
 ## 📁 Format File Gambar yang Didukung
 
 ```
@@ -168,7 +167,7 @@ python a4_brightness.py
 
 ## 👤 Informasi
 
-|                       |                                  | 
+|                       |                                  |
 | --------------------- | -------------------------------- |
 | **Mata Kuliah** | IFB-208 Pengolahan Citra Digital |
 | **Semester**    | 4                                |

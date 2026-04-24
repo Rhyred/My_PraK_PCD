@@ -8,3 +8,8 @@ git config --global user.email "robigold9@gmail.com"
 
 git update-index --skip-worktree .vscode/settings.json
 git update-index --no-skip-worktree .vscode/settings.json
+
+py -3.12 -m venv myvenv_pcd
+myvenv_pcd\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt

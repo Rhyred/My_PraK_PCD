@@ -5,3 +5,6 @@ Get-ExecutionPolicy -List
 
 git config --global user.name "Rhyred"
 git config --global user.email "robigold9@gmail.com"
+
+git update-index --skip-worktree .vscode/settings.json
+git update-index --no-skip-worktree .vscode/settings.json

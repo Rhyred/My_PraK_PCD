@@ -71,6 +71,7 @@ class ShowImage(QMainWindow):
         self.actionPrewitt.triggered.connect(self.prewittClicked)
         self.actionRoberts.triggered.connect(self.robertsClicked)
         self.actionCanny.triggered.connect(self.cannyClicked)
+        
 
     def loadClicked(self):
         options = QFileDialog.Options()

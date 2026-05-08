@@ -77,6 +77,11 @@ class ShowImage(QMainWindow):
         self.actionErosi.triggered.connect(self.erosiClicked)
         self.actionOpening.triggered.connect(self.openingClicked)
         self.actionClosing.triggered.connect(self.closingClicked)
+
+        self.actionSkeletonizing.triggered.connect(self.skeletonizingClicked)
+
+        
+
         
     def loadClicked(self):
         options = QFileDialog.Options()
@@ -1016,6 +1021,48 @@ class ShowImage(QMainWindow):
             
             self.image = img_out.copy()
             self.displayImage(2)
+
+    def skeletonizingClicked(self):
+        if self.image is not None:
+            print("Lagi proses Skeletonizing (Nyari kerangka objek)...")
+            
+            # 1. Pastikan gambar grayscale
+            if len(self.image.shape) == 3:
+                img_gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+            else:
+                img_gray = self.image.copy()
+                
+            # 2. Thresholding ke biner (Background hitam, objek putih)
+            _, img_biner = cv2.threshold(img_gray, 127, 255, 0)
+            
+            # 3. Siapkan kanvas kosong (warna hitam) untuk nyimpen hasil skeleton
+            skel = np.zeros(img_biner.shape, np.uint8)
+            
+            # 4. Gunakan Strel CROSS 3x3 untuk iterasi
+            element = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
+            
+            # 5. Looping Skeletonization (Erosi & Opening berulang)
+            img_temp = img_biner.copy()
+            while True:
+                # Opening
+                open_img = cv2.morphologyEx(img_temp, cv2.MORPH_OPEN, element)
+                # Kurangi gambar dengan hasil opening
+                temp = cv2.subtract(img_temp, open_img)
+                # Erosi gambar aslinya
+                eroded = cv2.erode(img_temp, element)
+                # Gabungin hasil (temp) ke kanvas skeleton
+                skel = cv2.bitwise_or(skel, temp)
+                # Update gambar untuk iterasi selanjutnya
+                img_temp = eroded.copy()
+                
+                # Stop kalau gambar udah abis (hitam semua)
+                if cv2.countNonZero(img_temp) == 0:
+                    break
+            
+            # 6. Tampilkan hasilnya
+            self.image = skel.copy()
+            self.displayImage(2)
+            print("Skeletonizing beres! Objeknya sekarang cuma sisa garis kerangka.")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

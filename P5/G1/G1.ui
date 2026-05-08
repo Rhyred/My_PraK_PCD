@@ -197,6 +197,7 @@
     <addaction name="actionErosi"/>
     <addaction name="actionOpening"/>
     <addaction name="actionClosing"/>
+    <addaction name="actionSkeletonizing"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOperasi_Titik"/>
@@ -408,6 +409,11 @@
   <action name="actionClosing">
    <property name="text">
     <string>Closing</string>
+   </property>
+  </action>
+  <action name="actionSkeletonizing">
+   <property name="text">
+    <string>Skeletonizing</string>
    </property>
   </action>
  </widget>
